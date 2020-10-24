@@ -9,13 +9,14 @@
  *
  * ========================================
 */
-#ifndef _INTERRUPT_ROUTINES_H_
-    // Header guard
-    #define _INTERRUPT_ROUTINES_H_
+#include "InterruptRoutines.h"
+
+CY_ISR(Custom_RX_ISR){
     
-    #include "project.h"
-    
-    CY_ISR_PROTO(Custom_RX_ISR);
-    CY_ISR_PROTO(Custom_ADC_ISR);
-#endif
+}
+
+
+CY_ISR(Custom_ADC_ISR){
+
+}
 /* [] END OF FILE */
