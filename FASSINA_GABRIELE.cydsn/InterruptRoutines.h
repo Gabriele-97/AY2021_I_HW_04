@@ -17,6 +17,7 @@
     #include "cytypes.h"
     #include "stdio.h"
     #include "Subroutines.h"
+    #include "math.h"
     
     #define TRANSMIT_BUFFER_SIZE 16
     
@@ -25,6 +26,8 @@
     volatile uint8 PacketReadyFlag;
     int32_t value_pot;
     int32_t value_photo;
+    uint8_t intensity;
+    
     
     CY_ISR_PROTO(Custom_RX_ISR);
     CY_ISR_PROTO(Custom_ADC_ISR);

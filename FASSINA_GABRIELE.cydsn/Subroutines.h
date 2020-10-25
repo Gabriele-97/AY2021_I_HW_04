@@ -19,11 +19,18 @@
     #define THRESHOLD_LIGHT 1000 //numero messo a caso, bisogna capire quanto sia
     #define ON 1
     #define OFF 0
+    #define PWM_MAX 255
+    #define SAMPLE_MAX 65535
+    #define M_CALIBRAZIONE PWM_MAX/SAMPLE_MAX
+    
     
     
     int32_t getdata(uint8_t channel);
     
     void LED_Driver();
+    
+    
+        
     
 #endif
 

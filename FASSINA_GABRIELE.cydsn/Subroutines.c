@@ -24,9 +24,13 @@ int32_t getdata(uint8_t channel){
 void LED_Driver(){
     if (value_pot >= THRESHOLD_LIGHT)
         Pin_LED_Write(OFF);
+        
     else{
         Pin_LED_Write(ON);
-        
-    }     
+        intensity =floor(M_CALIBRAZIONE*value_pot); //uso la funzione floor per arrotondare
+        PWM_WriteCompare(intensity);
+        }     
 }
+
+
 /* [] END OF FILE */
