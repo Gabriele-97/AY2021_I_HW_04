@@ -9,22 +9,17 @@
  *
  * ========================================
 */
-#ifndef _INTERRUPT_ROUTINES_H_
-    // Header guard
-    #define _INTERRUPT_ROUTINES_H_
+
+#ifndef __SUBROUTINES_H__
+    #define __SUBROUTINES_H__
     
     #include "project.h"
-    #include "cytypes.h"
-    #include "stdio.h"
-    #include "Subroutines.h"
+    #define POTENTIOMETER_CHANNEL 0
+    #define PHOTORESISTOR_CHANNEL 1
     
-    #define TRANSMIT_BUFFER_SIZE 16
+    int32_t getdata(uint8_t channel);
     
     
-    char DataBuffer[TRANSMIT_BUFFER_SIZE];
-    volatile uint8 PacketReadyFlag;
-    
-    CY_ISR_PROTO(Custom_RX_ISR);
-    CY_ISR_PROTO(Custom_ADC_ISR);
 #endif
+
 /* [] END OF FILE */

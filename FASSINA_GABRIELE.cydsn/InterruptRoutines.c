@@ -21,12 +21,10 @@ CY_ISR(Custom_RX_ISR){
 
 CY_ISR(Custom_ADC_ISR){
     Timer_ReadStatusRegister();
-    AMux_FastSelect(POTENTIOMETER_CHANNEL);
-    value_pot = ADC_DelSig_Read32();
+    value_pot = getdata(POTENTIOMETER_CHANNEL);
     k++;
     if(k == 10){ //il sampling del photoresistor viene fatto con una frequenza più bassa del potenziometro
-    AMux_FastSelect(PHOTORESISTOR_CHANNEL);
-    value_photo = ADC_DelSig_Read32();
+    value_photo = getdata(PHOTORESISTOR_CHANNEL);
     k=0;
     }
 }
