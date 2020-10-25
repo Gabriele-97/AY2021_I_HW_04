@@ -19,14 +19,16 @@
     #include "Subroutines.h"
     #include "math.h"
     
-    #define TRANSMIT_BUFFER_SIZE 16
+    #define BYTE_TO_SEND 2
+    #define TRANSMIT_BUFFER_SIZE 1+BYTE_TO_SEND+1
     
     
-    char DataBuffer[TRANSMIT_BUFFER_SIZE];
+    char DataBufferPot[TRANSMIT_BUFFER_SIZE];
+    char DataBufferPhoto[TRANSMIT_BUFFER_SIZE];
     volatile uint8 PacketReadyFlag;
     volatile uint8 StartFlag;
-    int32_t value_pot;
-    int32_t value_photo;
+    int32 value_pot;
+    int32 value_photo;
     uint8_t intensity;
     
     

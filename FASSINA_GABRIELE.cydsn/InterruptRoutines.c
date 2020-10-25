@@ -41,6 +41,7 @@ CY_ISR(Custom_RX_ISR){
 
 
 CY_ISR(Custom_ADC_ISR){
+    if(StartFlag){
     Timer_ReadStatusRegister();
     value_pot = getdata(POTENTIOMETER_CHANNEL);
     k++;
@@ -48,5 +49,16 @@ CY_ISR(Custom_ADC_ISR){
     value_photo = getdata(PHOTORESISTOR_CHANNEL);
     k=0;
     }
+    // FAI FUNZIONE
+    // RIFLETTI SUI TEMPI
+    DataBufferPot[1] = value_pot >>8;
+    DataBufferPot[2] = value_pot & 0xFF;
+    DataBufferPhoto[1] = value_photo >>8;
+    DataBufferPhoto[2] = value_photo & 0xFF;
+    sprintf(DataBufferPot, "Sample pot: %ld \r\n", value_pot);
+    sprintf(DataBufferPhoto, "Sample photo: %ld \r\n", value_pot);
+    PacketReadyFlag =1;
+    
+}
 }
 /* [] END OF FILE */
