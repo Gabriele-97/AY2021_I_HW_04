@@ -24,6 +24,7 @@
     
     char DataBuffer[TRANSMIT_BUFFER_SIZE];
     volatile uint8 PacketReadyFlag;
+    volatile uint8 StartFlag;
     int32_t value_pot;
     int32_t value_photo;
     uint8_t intensity;

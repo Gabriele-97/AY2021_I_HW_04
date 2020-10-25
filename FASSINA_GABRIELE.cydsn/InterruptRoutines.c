@@ -12,8 +12,30 @@
 #include "InterruptRoutines.h"
 
 uint k=0;
+uint8 ch_received;
 
 CY_ISR(Custom_RX_ISR){
+    
+    ch_received = UART_GetChar();
+    switch (ch_received){
+        case 'b':
+        case 'B':
+            StartFlag =1;
+            Pin_LED_STATO_Write(ON);    
+            Timer_Start();
+            break;
+        
+        case 's':
+        case 'S':
+            StartFlag = 0;
+            Pin_LED_STATO_Write(OFF);
+            Timer_Stop();
+            break;
+            
+        default:
+            break;            
+        
+    }
     
 }
 
