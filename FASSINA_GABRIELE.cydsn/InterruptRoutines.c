@@ -11,7 +11,7 @@
 */
 #include "InterruptRoutines.h"
 
-uint k=0;
+
 uint8 ch_received;
 
 CY_ISR(Custom_RX_ISR){
@@ -44,11 +44,8 @@ CY_ISR(Custom_ADC_ISR){
     if(StartFlag){
     Timer_ReadStatusRegister();
     value_pot = getdata(POTENTIOMETER_CHANNEL);
-    k++;
-    if(k == 10){ //il sampling del photoresistor viene fatto con una frequenza più bassa del potenziometro
     value_photo = getdata(PHOTORESISTOR_CHANNEL);
-    k=0;
-    }
+    
     // FAI FUNZIONE
     // RIFLETTI SUI TEMPI
     DataBufferPot[1] = value_pot >>8;

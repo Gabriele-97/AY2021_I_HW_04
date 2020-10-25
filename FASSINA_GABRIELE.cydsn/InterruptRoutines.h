@@ -23,8 +23,8 @@
     #define TRANSMIT_BUFFER_SIZE 1+BYTE_TO_SEND+1
     
     
-    char DataBufferPot[TRANSMIT_BUFFER_SIZE];
-    char DataBufferPhoto[TRANSMIT_BUFFER_SIZE];
+    uint8_t DataBufferPot[TRANSMIT_BUFFER_SIZE];
+    uint8_t DataBufferPhoto[TRANSMIT_BUFFER_SIZE];
     volatile uint8 PacketReadyFlag;
     volatile uint8 StartFlag;
     int32 value_pot;
