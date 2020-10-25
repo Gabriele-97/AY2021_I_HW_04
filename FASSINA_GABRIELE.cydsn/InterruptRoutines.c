@@ -10,8 +10,7 @@
  * ========================================
 */
 #include "InterruptRoutines.h"
-int32_t value_pot;
-int32_t value_photo;
+
 uint k=0;
 
 CY_ISR(Custom_RX_ISR){

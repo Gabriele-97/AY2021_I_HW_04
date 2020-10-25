@@ -16,9 +16,14 @@
     #include "project.h"
     #define POTENTIOMETER_CHANNEL 0
     #define PHOTORESISTOR_CHANNEL 1
+    #define THRESHOLD_LIGHT 1000 //numero messo a caso, bisogna capire quanto sia
+    #define ON 1
+    #define OFF 0
+    
     
     int32_t getdata(uint8_t channel);
     
+    void LED_Driver();
     
 #endif
 

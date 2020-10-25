@@ -23,6 +23,8 @@
     
     char DataBuffer[TRANSMIT_BUFFER_SIZE];
     volatile uint8 PacketReadyFlag;
+    int32_t value_pot;
+    int32_t value_photo;
     
     CY_ISR_PROTO(Custom_RX_ISR);
     CY_ISR_PROTO(Custom_ADC_ISR);
