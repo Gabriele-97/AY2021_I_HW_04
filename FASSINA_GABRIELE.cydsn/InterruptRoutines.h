@@ -28,7 +28,7 @@
     volatile uint8 StartFlag;
     extern int32 value_pot;
     extern int32 value_photo;
-    uint8_t intensity;
+    uint8 intensity;
     
     
     CY_ISR_PROTO(Custom_RX_ISR);

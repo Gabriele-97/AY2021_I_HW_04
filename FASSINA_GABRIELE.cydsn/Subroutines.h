@@ -16,7 +16,7 @@
     #include "project.h"
     #define POTENTIOMETER_CHANNEL 0
     #define PHOTORESISTOR_CHANNEL 1
-    #define THRESHOLD_LIGHT 40000 //numero messo a caso, bisogna capire quanto sia
+    #define THRESHOLD_LIGHT 35000 //numero messo a caso, bisogna capire quanto sia
     #define ON 1
     #define OFF 0
     #define PWM_MAX 255

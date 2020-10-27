@@ -29,13 +29,16 @@ int32_t getdata(uint8_t channel){
 }
 
 void LED_Driver(){
-    
+    if(StartFlag){
     if(value_photo <= THRESHOLD_LIGHT){
+        //intensity = (uint8)(M_CALIBRAZIONE * value_pot);
         PWM_WriteCompare(value_pot);
         }  
     else 
         PWM_WriteCompare(OFF);
 }
+    else PWM_WriteCompare(OFF);
 
-
+}
+    
 /* [] END OF FILE */
