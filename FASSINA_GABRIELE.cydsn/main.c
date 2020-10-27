@@ -20,20 +20,20 @@ int main(void)
     UART_Start();
     isr_ADC_StartEx(Custom_ADC_ISR);
     isr_Rx_StartEx(Custom_RX_ISR);
-    DataBufferPot[0] = 0xA0;
-    DataBufferPhoto[0]= 0xA0;
-    DataBufferPot[TRANSMIT_BUFFER_SIZE-1] = 0xC0;
-    DataBufferPhoto[TRANSMIT_BUFFER_SIZE-1] = 0XC0;
+    DataBuffer[0] = 0xA0;
+    DataBuffer[TRANSMIT_BUFFER_SIZE-1] = 0xC0;
     PacketReadyFlag = 0;
     ADC_DelSig_StartConvert();
+    PWM_Start();
+    
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     
         
     for(;;)
     {
+        LED_Driver();
         if(PacketReadyFlag == 1){
-            UART_PutArray(DataBufferPot, TRANSMIT_BUFFER_SIZE);
-            UART_PutArray(DataBufferPhoto,TRANSMIT_BUFFER_SIZE);
+            UART_PutArray(DataBuffer, TRANSMIT_BUFFER_SIZE);
             PacketReadyFlag = 0;
         }
         /* Place your application code here. */

@@ -13,23 +13,25 @@
 #include "Subroutines.h"
 #include "InterruptRoutines.h"
 
+int32 value_pot;
+int32 value_photo;
+
 int32_t getdata(uint8_t channel){
     int32_t value;
-    AMux_FastSelect(channel);
+    ADC_DelSig_StartConvert(); //fai una prova senza questi start e stop e vedi che succede
+    AMux_Select(channel);
     value = ADC_DelSig_Read32();
+    ADC_DelSig_StopConvert();
     return value;
 
 }
 
 void LED_Driver(){
-    if (value_pot >= THRESHOLD_LIGHT)
-        Pin_LED_Write(OFF);
-        
-    else{
-        Pin_LED_Write(ON);
-        intensity =floor(M_CALIBRAZIONE*value_pot); //uso la funzione floor per arrotondare
-        PWM_WriteCompare(intensity);
-        }     
+    
+    if(value_photo <= THRESHOLD_LIGHT){
+        PWM_WriteCompare(value_pot);
+        }  
+    //else RED_LED_Write(OFF);
 }
 
 
