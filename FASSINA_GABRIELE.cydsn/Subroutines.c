@@ -21,6 +21,8 @@ int32_t getdata(uint8_t channel){
     ADC_DelSig_StartConvert(); //fai una prova senza questi start e stop e vedi che succede
     AMux_Select(channel);
     value = ADC_DelSig_Read32();
+    if(value > 65535) value = 65535;
+    if(value <0) value = 0;
     ADC_DelSig_StopConvert();
     return value;
 
@@ -31,7 +33,8 @@ void LED_Driver(){
     if(value_photo <= THRESHOLD_LIGHT){
         PWM_WriteCompare(value_pot);
         }  
-    //else RED_LED_Write(OFF);
+    else 
+        PWM_WriteCompare(OFF);
 }
 
 
