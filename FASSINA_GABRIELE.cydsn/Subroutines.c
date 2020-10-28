@@ -31,8 +31,8 @@ int32_t getdata(uint8_t channel){
 void LED_Driver(){
     if(StartFlag){
     if(value_photo <= THRESHOLD_LIGHT){
-        //intensity = (uint8)(M_CALIBRAZIONE * value_pot);
-        PWM_WriteCompare(value_pot);
+        intensity = (uint8) (value_pot*M_CALIBRAZIONE);
+        PWM_WriteCompare(intensity);
         }  
     else 
         PWM_WriteCompare(OFF);

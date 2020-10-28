@@ -26,7 +26,7 @@
     
     
     int32_t getdata(uint8_t channel);
-    
+    uint8 intensity;
     void LED_Driver();
     
     

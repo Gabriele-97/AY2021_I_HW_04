@@ -47,16 +47,12 @@ CY_ISR(Custom_ADC_ISR){
     Timer_ReadStatusRegister();
     value_pot = getdata(POTENTIOMETER_CHANNEL);
     value_photo = getdata(PHOTORESISTOR_CHANNEL);
-    // FAI FUNZIONE
-    // RIFLETTI SUI TEMPI
+    
     DataBuffer[1] = value_pot>>8;
     DataBuffer[2] = value_pot & 0xFF;
     DataBuffer[3] = value_photo>>8;
     DataBuffer[4] = value_photo & 0xFF;
     
-      
-    //sprintf(DataBufferPot, "Sample pot: %ld \r\n", value_pot);
-    //sprintf(DataBufferPhoto, "Sample photo: %ld \r\n", value_pot);
     PacketReadyFlag =1;
     
 }
