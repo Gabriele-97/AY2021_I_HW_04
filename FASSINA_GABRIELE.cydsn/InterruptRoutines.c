@@ -1,6 +1,6 @@
 /* ========================================
  *
- * Copyright YOUR COMPANY, THE YEAR
+ * Copyright Gabriele Fassina, 2020
  * All Rights Reserved
  * UNPUBLISHED, LICENSED SOFTWARE.
  *
@@ -15,6 +15,16 @@
 uint8 ch_received;
 int32 value_pot;
 int32 value_photo;
+
+/* ==================================================================================================
+                            UART RECEIVE INTERRUPT
+    This interrupt activates when a new character is received by the UART
+    the variable is saved in the ch_received and different operations are done based on the received 
+    if it is b or B the lamp control is enabled and the state LED is turned on;
+    if it is s or S the lamp control is disabled and the state LED is turned off 
+    (also the lamp led is turned off in the driver function);
+    if it is any other character, nothing occurs
+    ==================================================================================================*/
 
 CY_ISR(Custom_RX_ISR){
     
@@ -40,7 +50,13 @@ CY_ISR(Custom_RX_ISR){
     }
     
 }
-
+/* ==================================================================================================
+                                         ADC INTERRUPT
+    This interrupt activates when the Timer dedicated to ADC gets to zero. 
+    the value of the potentiometer and photoresistor are acquired in series and they are "immediately" 
+    inserted in the DataBuffer so that also the values transmitted will be real time. 
+    when the new values are acquired the PacketReadyFlag set to 1 enables the UART transmission
+    ==================================================================================================*/
 
 CY_ISR(Custom_ADC_ISR){
     if(StartFlag){
