@@ -17,7 +17,7 @@ int main(void)
 {
     /*===============================================================================
                     FUNCTION ACTIVATION AND INITIALIZATIONS
-    in this first part of the main, periphericals are activated (ADC, UART and PWM), 
+    in this first part of the main, peripherals are activated (ADC, UART and PWM), 
     Interrupts are started and the header and tail of the data buffer 
     (needed to transmit the information via control panel) are set 
     ==================================================================================*/ 
@@ -34,7 +34,7 @@ int main(void)
     
     /*===============================================================================
                                             MAIN BODY
-    The infinite cycle for just performs the LED driving through the specific function
+    The infinite cycle for just performs the LED driving through the specific function implemented
     and it sends the values of the potentiometer and of the photoresistor that have been put
     in the DataBuffer when new values are received. 
     RMK: the control on packetreadyflag means that nothing will be communicated 

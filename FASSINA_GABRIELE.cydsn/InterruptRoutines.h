@@ -1,6 +1,6 @@
 /* ========================================
  *
- * Copyright YOUR COMPANY, THE YEAR
+ * Copyright Fassina Gabriele, 2020
  * All Rights Reserved
  * UNPUBLISHED, LICENSED SOFTWARE.
  *
@@ -17,10 +17,9 @@
     #include "cytypes.h"
     #include "stdio.h"
     #include "Subroutines.h"
-    #include "math.h"
-    
-    #define BYTE_TO_SEND 4
-    #define TRANSMIT_BUFFER_SIZE 1+BYTE_TO_SEND+1
+        
+    #define BYTE_TO_SEND 4 //4 bytes are sent: 2 for each sensor
+    #define TRANSMIT_BUFFER_SIZE 1+BYTE_TO_SEND+1 //bytes + header and tail
     
     
     uint8_t DataBuffer[TRANSMIT_BUFFER_SIZE];

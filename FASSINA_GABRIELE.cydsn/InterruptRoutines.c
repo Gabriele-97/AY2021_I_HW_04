@@ -19,7 +19,7 @@ int32 value_photo;
 /* ==================================================================================================
                             UART RECEIVE INTERRUPT
     This interrupt activates when a new character is received by the UART
-    the variable is saved in the ch_received and different operations are done based on the received 
+    the variable is saved in the ch_received and different operations are done based on what was received: 
     if it is b or B the lamp control is enabled and the state LED is turned on;
     if it is s or S the lamp control is disabled and the state LED is turned off 
     (also the lamp led is turned off in the driver function);
