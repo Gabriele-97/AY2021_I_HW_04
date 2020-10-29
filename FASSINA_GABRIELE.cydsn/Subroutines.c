@@ -27,7 +27,9 @@ int32 value_photo;
     
 int32_t getdata(uint8_t channel){
     int32_t value;
-    AMux_Select(channel);
+    ADC_DelSig_StopConvert();
+    AMux_FastSelect(channel);
+    ADC_DelSig_StartConvert();
     value = ADC_DelSig_Read32();
     if(value > 65535) value = 65535;
     if(value <0) value = 0;
