@@ -21,6 +21,8 @@ int32 value_photo;
     This function is used to read the ADC sampling the potentiometer and the 
     photoresistor. it gets in imput the channel of the MUX each sensor is attached to 
     and returns in output the value sampled. 
+    Since tha ADC is in multisample mode the system is stopped and started before channel is changed
+    to be sure no crosstalk between the two signals is present as suggested in the datasheet.
     Read32 function is used according to ADC datasheet when the sampling is done in 16 bits.
     A control is added to assure that the values sampled are inside the expected dynamics (0-65535)
     ==============================================================================================*/
